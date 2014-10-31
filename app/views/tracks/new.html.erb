@@ -1,0 +1,28 @@
+<h2>Enter New Track</h2>
+
+<form action="<%= tracks_url %>" method="post">
+<%= auth_token %>
+<%= name_form_entry("track") %>
+<br>
+<%= dropdown("album") %>
+<br>
+<label>Track Type</label>
+  <input name="track[bonus]"
+         id="regular"
+         type="radio"
+         value= false>
+    <lable for="regular">Regular</lable>
+  <input name="track[bonus]"
+         id="bonus"
+         type="radio"
+         value= true>
+    <label for="bonus">Bonus</label>
+<br>
+<label for="lyrics">Lyrics</label>
+<textarea name="track[lyrics]"
+          id="lyrics"
+          value="<%= @track.try(:lyrics) %>">
+</textarea>
+<br>
+<%= submit("album") %>
+</form>
